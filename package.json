@@ -33,11 +33,11 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/oleg-zaharenok/n8n-node-skapi.git"
+    "url": "git+https://github.com/zaharenok/n8n-node-skapi.git"
   },
   "homepage": "https://skapi.pro",
   "bugs": {
-    "url": "https://github.com/oleg-zaharenok/n8n-node-skapi/issues"
+    "url": "https://github.com/zaharenok/n8n-node-skapi/issues"
   },
   "funding": {
     "type": "github",
