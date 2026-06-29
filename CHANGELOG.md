@@ -36,8 +36,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - JWT token authentication
 - Secure credential storage via n8n
 - HTTPS only API communication
-
 ### Documentation
+- README with quick start guide
+- INSTALLATION.md with detailed setup instructions
+- EXAMPLES.md with practical workflow examples
+- CONTRIBUTING.md for developers
+
+## [1.0.1] - 2024-06-29
+
+### Changed
+- Added `n8n-community-node-package` keyword for better npm search visibility
+- Improved discoverability on npm registry
 - README with quick start guide
 - INSTALLATION.md with detailed setup instructions
 - EXAMPLES.md with practical workflow examples

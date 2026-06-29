@@ -1,6 +1,6 @@
 {
   "name": "n8n-node-skapi",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Automate Skool communities with n8n - check join requests, process approvals, monitor messages & notifications. Perfect for community managers. Join our community: https://skool.com/ai-pays-my-bills-7018/about",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -15,6 +15,7 @@
     "n8n",
     "n8n-node",
     "n8n-community-node",
+    "n8n-community-node-package",
     "skool",
     "skapi",
     "skapi-pro",
