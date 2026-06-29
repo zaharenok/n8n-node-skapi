@@ -1,0 +1,176 @@
+{
+  "name": "n8n-node-skapi",
+  "version": "1.0.0",
+  "description": "Automate Skool communities with n8n - check join requests, process approvals, monitor messages & notifications. Perfect for community managers. Join our community: https://skool.com/ai-pays-my-bills-7018/about",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "prepublishOnly": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "n8n",
+    "n8n-node",
+    "n8n-community-node",
+    "skool",
+    "skapi",
+    "skapi-pro",
+    "automation",
+    "community",
+    "community-management",
+    "join-requests",
+    "workflow",
+    "integration",
+    "api",
+    "automations",
+    "notifications",
+    "messages"
+  ],
+  "author": "Oleg Zaharenok <oleg@skapi.pro>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oleg-zaharenok/n8n-node-skapi.git"
+  },
+  "homepage": "https://skapi.pro",
+  "bugs": {
+    "url": "https://github.com/oleg-zaharenok/n8n-node-skapi/issues"
+  },
+  "funding": {
+    "type": "github",
+    "url": "https://github.com/sponsors/oleg-zaharenok"
+  },
+  "dependencies": {
+    "n8n-workflow": "^1.0.0",
+    "axios": "^1.6.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "typescript": "^5.0.0",
+    "n8n-core": "^1.0.0"
+  },
+  "n8n": {
+    "credentials": {
+      "skapiApi": {
+        "name": "SkAPI.pro API",
+        "required": ["jwtToken"]
+      }
+    },
+    "nodes": [
+      {
+        "name": "SkAPI.pro",
+        "displayName": "SkAPI.pro",
+        "icon": "file:skapi.svg",
+        "group": ["transform"],
+        "subgroup": "community",
+        "version": 1,
+        "description": "Automate Skool community management - join requests, messages, notifications. Get API key at https://skapi.pro",
+        "defaults": {
+          "name": "SkAPI.pro",
+          "color": "#1a1a1a"
+        },
+        "inputs": ["main"],
+        "outputs": ["main"],
+        "credentials": ["skapiApi"],
+        "properties": [
+          {
+            "displayName": "Resource",
+            "name": "resource",
+            "type": "options",
+            "noDataExpression": true,
+            "options": [
+              {
+                "name": "Join Request",
+                "value": "joinRequest",
+                "description": "Manage join requests"
+              },
+              {
+                "name": "Message",
+                "value": "message",
+                "description": "Check and manage messages"
+              },
+              {
+                "name": "Notification",
+                "value": "notification",
+                "description": "Check Skool notifications"
+              }
+            ],
+            "default": "joinRequest"
+          },
+          {
+            "displayName": "Operation",
+            "name": "operation",
+            "type": "options",
+            "displayOptions": {
+              "show": {
+                "resource": ["joinRequest"]
+              }
+            },
+            "options": [
+              {
+                "name": "Check Join Requests",
+                "value": "checkJoinRequests",
+                "description": "Get pending join requests",
+                "action": "checkJoinRequests"
+              },
+              {
+                "name": "Process Join Request",
+                "value": "processJoinRequest",
+                "description": "Approve or decline join request",
+                "action": "processJoinRequest"
+              },
+              {
+                "name": "Send Welcome Message",
+                "value": "sendWelcomeMessage",
+                "description": "Send welcome message to new member (coming soon)",
+                "action": "sendWelcomeMessage"
+              }
+            ],
+            "default": "checkJoinRequests"
+          },
+          {
+            "displayName": "Operation",
+            "name": "operation",
+            "type": "options",
+            "displayOptions": {
+              "show": {
+                "resource": ["message"]
+              }
+            },
+            "options": [
+              {
+                "name": "Check Messages",
+                "value": "checkMessages",
+                "description": "Get new messages in group",
+                "action": "checkMessages"
+              }
+            ],
+            "default": "checkMessages"
+          },
+          {
+            "displayName": "Operation",
+            "name": "operation",
+            "type": "options",
+            "displayOptions": {
+              "show": {
+                "resource": ["notification"]
+              }
+            },
+            "options": [
+              {
+                "name": "Check Notifications",
+                "value": "checkNotifications",
+                "description": "Get Skool notifications",
+                "action": "checkNotifications"
+              }
+            ],
+            "default": "checkNotifications"
+          }
+        ]
+      }
+    ]
+  }
+}
