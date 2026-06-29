@@ -116,3 +116,10 @@ None in current version.
 ---
 
 For more information, visit [SkAPI.pro](https://skapi.pro)
+
+## [1.0.2] - 2024-06-29
+
+### Changed
+- Improved npm discoverability for Skool searches
+- Added skool-specific keywords: skool-api, skool-automation, skool-community, skool-management, skool-integration, skool-join-requests
+- Keywords now optimized for "skool" search queries
